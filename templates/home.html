@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Rouel Astrolabio
+{% endblock %}
+
+{% block body %}
+<div class="scrollspy-example rounded-2" data-bs-spy="scroll" data-bs-target="#navbar-1"
+    data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+    <h1 id="about"></h1>
+    <div class="bg-dark bg-gradient d-flex flex-column justify-content-center align-items-center px-5"
+        style="min-height: 100vh;">
+        <h1 class="">
+            Rouel Astrolabio
+        </h1>
+        <i><b>Python</b> and <b>Javascript</b> Developer</i>
+        <br><br>
+        <a id="email" href="mailto:astrolabio1417@gmail.com" target="_blank">Email: astrolabio1417@gmail.com</a>
+        <a href="https://github.com/astrolabio1417" target="_blank">Github</a>
+        <a href="https://www.linkedin.com/in/rouel-astrolabio-7b4494189/" target="_blank">Linkedin</a>
+    </div>
+    <hr>
+    <div id="skills" class="d-flex flex-column justify-content-center align-items-center gap-5 px-5"
+        style="min-height: 100vh;">
+        <h1>Skills</h1>
+        <div class="d-flex flex-wrap gap-5">
+            {% for skill in skills %}
+            <div class="d-flex flex-wrap flex-column text-center">
+                <img title="{{ skill.name }}" alt="{{ skill.name }}" height="50px" width="auto"
+                    src="https://{{ s3_url }}/{{ skill.image }}" />
+                <b>
+                    {{skill.name}}
+                </b>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <hr>
+    <div id="projects" class="d-flex flex-column flex-wrap justify-content-center align-items-center gap-5 px-5">
+        <h1>Projects</h1>
+        <div class="d-flex flex-wrap gap-5">
+            {% for project in projects %}
+            <div class="card bg-dark" style="width: 30rem;">
+                <img src="https://{{ s3_url }}/{{ project.image }}" class="card-img-top" alt="{{ project.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.name }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                    <a href="{{ project.url }}" class="btn btn-primary" target="_blank">Visit</a>
+                    <div>
+                        {% for skill in project.technology.all %}
+                        {{ skill.name }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

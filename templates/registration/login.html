@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block body %}
+<div class="container my-5">
+    <b>Login</b>
+
+    <form class="my-2" method="post">
+        {% csrf_token %}
+        <div class="bg-danger rounded text-light">
+            {{form.errors}}
+        </div>
+
+        {% for field in form %}
+        <label for="id_{{field.label|lower}}">{{field.label}}</label>
+        {{ field.errors }}
+        {{ field.required }}
+        {% render_field field class="form-control" %}
+        {% endfor %}
+
+        <input type="submit" class="btn btn-primary mt-3">
+    </form>
+</div>
+
+{% endblock %}
