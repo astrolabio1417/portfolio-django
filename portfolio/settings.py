@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "yey")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", False) == "True"
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1").split(" ")
 
@@ -92,18 +92,18 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.sqlite3",
-    #     "NAME": BASE_DIR / "db.sqlite3",
-    # }
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("POSTGRES_DB"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
-        "HOST": os.environ.get("POSTGRES_HOST"),
-        "PORT": os.environ.get("POSTGRES_PORT"),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": os.environ.get("POSTGRES_DB"),
+    #     "USER": os.environ.get("POSTGRES_USER"),
+    #     "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+    #     "HOST": os.environ.get("POSTGRES_HOST"),
+    #     "PORT": os.environ.get("POSTGRES_PORT"),
+    # }
 }
 
 
@@ -139,27 +139,24 @@ USE_TZ = True
 
 
 # Media files
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "x")
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "x")
-AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "x")
-AWS_S3_ENDPOINT_URL = os.environ.get(
-    "AWS_S3_ENDPOINT_URL", "https://s3.us-west-004.backblazeb2.com"
-)
-AWS_S3_CUSTOM_DOMAIN = os.environ.get(
-    "AWS_S3_CUSTOM_DOMAIN", "x.s3.us-west-004.backblazeb2.com"
-)
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_ENDPOINT_URL = os.environ.get("AWS_S3_ENDPOINT_URL")
+AWS_S3_CUSTOM_DOMAIN = os.environ.get("AWS_S3_CUSTOM_DOMAIN")
 
-
-# To upload your media files to S3
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+if AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY:
+    # To upload your media files to S3
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+else:
+    MEDIA_ROOT = BASE_DIR / "media"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
-MEDIA_URL = "media/"
+MEDIA_URL = "/media/"
 STATIC_ROOT = os.path.join(BASE_DIR / "staticfiles")
-# MEDIA_ROOT = os.path.join(BASE_DIR / "media")
 
 # whitenoise  forever-cacheable files and compression support
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
