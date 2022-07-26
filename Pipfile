@@ -12,6 +12,8 @@ boto3 = "*"
 django-cleanup = "*"
 django-storages = "*"
 whitenoise = "*"
+django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 
