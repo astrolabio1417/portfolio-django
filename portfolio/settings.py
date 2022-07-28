@@ -44,9 +44,8 @@ if os.environ.get("DEPLOY", False) == "True":
 
 INSTALLED_APPS = [
     "django_cleanup.apps.CleanupConfig",
-    "project",
+    "portfolio",
     "accounts",
-    "skill",
     "widget_tweaks",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -155,7 +154,7 @@ else:
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
-MEDIA_URL = "/media/"
+MEDIA_URL = "media/"
 STATIC_ROOT = os.path.join(BASE_DIR / "staticfiles")
 
 # whitenoise  forever-cacheable files and compression support
