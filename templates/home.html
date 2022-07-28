@@ -69,8 +69,8 @@ Rouel Astrolabio
             <div class="d-flex flex-wrap gap-5">
                 {% for tech in technologies.frameworks %}
                 <div class="d-flex align-items-center">
-                    <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="50px" alt="{{tech.name}}"> {{
-                    tech.name }}
+                    <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="50px" alt="{{tech.name}}">
+                    {{ tech.name }}
                 </div>
                 {% endfor %}
             </div>
@@ -83,8 +83,8 @@ Rouel Astrolabio
             <div class="d-flex flex-wrap gap-5">
                 {% for tech in technologies.platforms %}
                 <div class="d-flex align-items-center">
-                    <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="50px" alt="{{tech.name}}"> {{
-                    tech.name }}
+                    <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="50px" alt="{{tech.name}}">
+                    {{ tech.name }}
                 </div>
                 {% endfor %}
             </div>
