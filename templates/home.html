@@ -5,10 +5,10 @@ Rouel Astrolabio
 {% endblock %}
 
 {% block body %}
-<div class="scrollspy-example rounded-2" data-bs-spy="scroll" data-bs-target="#navbar-1"
+<div class="scrollspy-example rounded-2" data-bs-spy="scroll" data-bs-target="#navbar"
     data-bs-root-margin="0px 0px -50%" data-bs-smooth-scroll="true" tabindex="0">
-    <div id="about" class="bg-dark bg-gradient d-flex flex-column justify-content-center align-items-center gap-3 px-5"
-        style="min-height: 100vh; font-size: 0.8rem;">
+    <div id="about" class="bg-dark bg-gradient d-flex flex-column justify-content-center align-items-center gap-3 px-1"
+        style="min-height: 100vh;">
         <h1>
             Rouel Astrolabio
         </h1>
@@ -54,7 +54,7 @@ Rouel Astrolabio
     </div>
     <hr>
 
-    <div id="skills" class="d-flex justify-content-center align-items-center px-5" style="min-height: 100vh;">
+    <div id="skills" class="d-flex justify-content-center align-items-center px-1" style="min-height: 100vh;">
         <div class="d-flex flex-column gap-5">
             {% for key, value in technologies.items %}
             {% if value %}
@@ -76,19 +76,24 @@ Rouel Astrolabio
         </div>
     </div>
     <hr>
-    <div id="projects" class="d-flex flex-column flex-wrap justify-content-center gap-5 px-5"
-        style="min-height: 100vh;">
+
+    <div id="projects" class="d-flex flex-column flex-wrap justify-content-center gap-5 px-1"
+        style="min-height: 100vh; margin-bottom: 100px;">
         <h4 class="text-center">Projects</h4>
         <div class="d-flex flex-wrap justify-content-center align-items-center gap-5">
             {% for project in projects %}
-            <div class="card bg-dark border min-w-5">
-                <img class="card-img-top" style="object-fit: cover;" height="250px" width="auto"
-                    alt="{{ project.name }}" src="{{ media_url }}/{{ project.image }}">
-                <div class="card-body" style="max-width: 350px;">
-                    <h5 class="card-title">{{ project.name }}</h5>
-                    <hr>
+            <div class="card bg-dark border w-45">
+                <img class="card-img-top" src="{{ media_url }}/{{ project.image }}" height="300px"
+                    alt="{{ project.name }}" style="object-fit: cover;">
+                <div class="card-body">
+                    <h4 class=" card-title">{{ project.name }}</h4>
                     <p class="card-text">{{ project.description }}</p>
-                    <a href="{{ project.url }}" class="btn btn-primary" target="_blank">Visit</a>
+                    {% if project.url %}
+                    <a href="{{ project.url }}" class="btn btn-primary" target="_blank">Website</a>
+                    {% endif %}
+                    {% if project.repository %}
+                    <a href="{{ project.repository }}" class="btn btn-primary" target="_blank">Source Code</a>
+                    {% endif %}
                     <hr>
                     <div class="d-flex flex-wrap gap-1">
                         {% for tech in project.technologies.all %}

@@ -44,6 +44,7 @@
     <style>
         body {
             font-family: 'Mochiy Pop P One', sans-serif;
+            font-size: 0.8rem;
         }
 
         a {
@@ -59,9 +60,8 @@
 </head>
 
 <body class="bg-dark text-light">
-    <nav id="navbar-1" class="navbar navbar-dark fixed-top">
-        <!-- <a class="navbar-brand mx-2" href="/">Home</a> -->
-
+    <nav id="navbar" class="navbar bg-dark position-fixed bottom-0 start-0 end-0 d-flex justify-content-center"
+        style="z-index: 5;">
         <ul class="nav nav-pills">
             <li class="nav-item">
                 <a class="nav-link" href="#about">About</a>
@@ -72,26 +72,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="#projects">Projects</a>
             </li>
-
-            <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-expanded="false">Account</a>
-
-                <ul class="dropdown-menu">
-                    {% if not user.is_authenticated %}
-                    <li>
-                        <a class="dropdown-item" href="/accounts/login">Login</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="/accounts/registration">Register</a>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a class="dropdown-item" href="/accounts/logout">Logout</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </li> -->
         </ul>
     </nav>
 
