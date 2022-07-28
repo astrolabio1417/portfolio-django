@@ -49,27 +49,28 @@ Rouel Astrolabio
     </div>
     <hr>
 
-    <div id="skills" class="d-flex flex-column justify-content-center align-items-start gap-5 px-5"
-        style="min-height: 100vh;">
-        {% for key, value in technologies.items %}
-        {% if value %}
-        <div class="">
-            <h4>{{ key|title }}</h4>
-            <div class="d-flex flex-wrap gap-5">
-                {% for tech in value %}
-                <div class="d-flex align-items-center">
-                    <!-- src="/media/{{tech.logo}}" -->
-                    <!-- src="https://{{ s3_url }}/{{ tech.logo }}" -->
-                    <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="30px" alt="{{tech.name}}">
-                    <span>
-                        {{ tech.name }}
-                    </span>
+    <div id="skills" class="d-flex justify-content-center align-items-center px-5" style="min-height: 100vh;">
+        <div class="d-flex flex-column gap-5">
+            {% for key, value in technologies.items %}
+            {% if value %}
+            <div>
+                <h4>{{ key|title }}</h4>
+                <div class="d-flex flex-wrap gap-5">
+                    {% for tech in value %}
+                    <div class="d-flex align-items-center">
+                        <!-- src="/media/{{tech.logo}}" -->
+                        <!-- src="https://{{ s3_url }}/{{ tech.logo }}" -->
+                        <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="30px" alt="{{tech.name}}">
+                        <span>
+                            {{ tech.name }}
+                        </span>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
+            {% endif %}
+            {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
     </div>
     <hr>
     <div id="projects" class="d-flex flex-column flex-wrap justify-content-center gap-5 px-5"
