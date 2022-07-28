@@ -45,55 +45,32 @@ Rouel Astrolabio
     </div>
     <hr>
 
-    <div id="skills" class="d-flex flex-column justify-content-center align-items-center gap-5 px-5 text-sm"
+    <div id="skills" class="d-flex flex-column justify-content-center align-items-start gap-5 px-5"
         style="min-height: 100vh;">
-
-        {% if technologies.languages %}
-        <div>
-            <h3>Languages</h3>
+        {% for key, value in technologies.items %}
+        {% if value %}
+        <div class="">
+            <h4>{{ key|title }}</h4>
             <div class="d-flex flex-wrap gap-5">
-                {% for tech in technologies.languages %}
+                {% for tech in value %}
                 <div class="d-flex align-items-center">
                     <!-- src="/media/{{tech.logo}}" -->
-                    <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="50px" alt="{{tech.name}}">
-                    {{ tech.name }}
+                    <!-- src="https://{{ s3_url }}/{{ tech.logo }}" -->
+                    <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="30px" alt="{{tech.name}}">
+                    <span>
+                        {{ tech.name }}
+                    </span>
                 </div>
                 {% endfor %}
             </div>
         </div>
         {% endif %}
-
-        {% if technologies.frameworks %}
-        <div>
-            <h3>Frameworks</h3>
-            <div class="d-flex flex-wrap gap-5">
-                {% for tech in technologies.frameworks %}
-                <div class="d-flex align-items-center">
-                    <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="50px" alt="{{tech.name}}">
-                    {{ tech.name }}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        {% if technologies.platforms %}
-        <div>
-            <h3>Platforms</h3>
-            <div class="d-flex flex-wrap gap-5">
-                {% for tech in technologies.platforms %}
-                <div class="d-flex align-items-center">
-                    <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="50px" alt="{{tech.name}}">
-                    {{ tech.name }}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
+        {% endfor %}
     </div>
     <hr>
-    <div id="projects" class="d-flex flex-column flex-wrap gap-5 px-5" style="min-height: 100vh;">
-        <h1 class="text-center">Projects</h1>
+    <div id="projects" class="d-flex flex-column flex-wrap justify-content-center gap-5 px-5"
+        style="min-height: 100vh;">
+        <h4 class="text-center">Projects</h4>
         <div class="d-flex flex-wrap justify-content-center align-items-center gap-5">
             {% for project in projects %}
             <div class="card bg-dark border min-w-5">
@@ -101,7 +78,7 @@ Rouel Astrolabio
                     alt="{{ project.name }}" src="https://{{ s3_url }}/{{ project.image }}">
                 <!-- src="https://{{ s3_url }}/{{ project.image }}" -->
                 <!-- src="/media/{{ project.image }}" -->
-                <div class="card-body">
+                <div class="card-body" style="max-width: 350px;">
                     <h5 class="card-title">{{ project.name }}</h5>
                     <p class="card-text">{{ project.description }}</p>
                     <a href="{{ project.url }}" class="btn btn-primary" target="_blank">Visit</a>
@@ -109,6 +86,9 @@ Rouel Astrolabio
 
                         {% for tech in project.technologies.all %}
                         <label class="onhover-yeet px-2 my-2 border-bottom">
+                            <!-- src="/media/{{tech.logo}}" -->
+                            <img src="https://{{ s3_url }}/{{ tech.logo }}" class="mx-2" height="20px"
+                                alt="{{tech.name}}">
                             {{ tech.name }}
                         </label>
                         {% endfor %}
