@@ -1,0 +1,44 @@
+body {
+    font-family: 'Mochiy Pop P One', sans-serif;
+    font-size: 0.8rem;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none;
+}
+
+.onhover-yeet:hover {
+    background-color: rgb(29, 169, 169) !important;
+}
+
+.card-medium {
+    width: 500px !important;
+    min-width: 500px !important;
+    max-width: 500px !important;
+}
+
+.square {
+    opacity: 0;
+    transform: translate(-100%, 0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .square {
+        transition: opacity 1.5s ease, transform 1.0s ease;
+    }
+}
+
+.square-transition {
+    opacity: 1;
+    transform: none;
+}
+
+
+@media screen and (max-width: 500px) {
+    .card-medium {
+        width: 95% !important;
+        min-width: 95% !important;
+        max-width: 95% !important;
+    }
+}

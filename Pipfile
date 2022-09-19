@@ -6,8 +6,6 @@ name = "pypi"
 [packages]
 django = "*"
 pillow = "*"
-black = "*"
-django-widget-tweaks = "*"
 boto3 = "*"
 django-cleanup = "*"
 django-storages = "*"
@@ -16,6 +14,7 @@ django-heroku = "*"
 gunicorn = "*"
 
 [dev-packages]
+black = "*"
 
 [requires]
 python_version = "3.10"

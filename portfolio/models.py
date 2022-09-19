@@ -23,3 +23,6 @@ class Project(models.Model):
     repository = models.URLField(blank=True, null=True)
     description = models.TextField()
     technologies = models.ManyToManyField(Technology)
+
+    def __str__(self) -> str:
+        return f"{self.pk} {self.name}"

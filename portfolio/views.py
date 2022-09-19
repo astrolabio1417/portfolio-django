@@ -9,9 +9,10 @@ def home(request):
     frameworks = technologies.filter(type="F")
     platforms = technologies.filter(type="P")
     projects = Project.objects.all()
-    media_url = (
-        "/media" if settings.DEBUG else f"https://{settings.AWS_S3_CUSTOM_DOMAIN}"
-    )
+    media_url = f"https://{settings.AWS_S3_CUSTOM_DOMAIN}"
+
+    if settings.DEBUG:
+        media_url = "/media"
 
     return render(
         request,
