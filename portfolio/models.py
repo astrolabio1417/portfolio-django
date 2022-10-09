@@ -5,9 +5,9 @@ from django.db import models
 class Technology(models.Model):
     TECHNOLOGY_CHOICES = [
         ("L", "LANGUAGE"),
-        ("F", "FRAMEWORK"),
         ("BE", "BACKEND"),
         ("FE", "FRONTEND"),
+        ("P", "PLATFORM"),
     ]
     name = models.CharField(max_length=25)
     logo = models.FileField(upload_to="logo")
