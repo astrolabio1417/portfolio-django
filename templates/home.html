@@ -10,8 +10,9 @@ Rouel Astrolabio Portfolio
     <img id="image-viewer-image" class="img-fluid" src="" alt="image-viewer" style="touch-action: auto;">
     <button id="image-viewer-hide" class="position-fixed m-4 end-0 top-0 btn-close bg-danger p-3"></button>
 </div>
-<div class="scrollspy-example rounded-2" data-bs-spy="scroll" data-bs-target="#navbar"
+<div class="rounded-2" data-bs-spy="scroll" data-bs-target="#navbar"
     data-bs-root-margin="0px 0px -50%" data-bs-smooth-scroll="true" tabindex="0">
+    
     <div id="about" class="bg-dark bg-gradient d-flex flex-column justify-content-center align-items-center gap-3 px-1"
         style="min-height: 100vh;">
         <h1 class="square-wrapper square square-transition">
@@ -61,15 +62,18 @@ Rouel Astrolabio Portfolio
 
     <div id="skills" class="d-flex justify-content-center align-items-center px-1" style="min-height: 100vh;">
         <div class="d-flex flex-column gap-5">
+            <h4 class="text-center square-wrapper square square-transition">Skills</h4>
             {% for key, value in technologies.items %}
                 {% if value %}
                     <div class="square-wrapper square square-transition">
-                        <h4>{{ key|title }}</h4>
+                        <h6 class="text-center"><i>{{ key|title }}</i></h6>
+                        <hr class="shadow">
                         <div class="d-flex flex-wrap gap-5">
                             {% for tech in value %}
                                 <div class="d-flex align-items-center">
                                     <img src="{{ media_url }}/{{ tech.logo }}" class="mx-2" height="30px" alt="{{tech.name}}">
                                     <span>
+
                                         {{ tech.name }}
                                     </span>
                                 </div>
@@ -87,17 +91,17 @@ Rouel Astrolabio Portfolio
         <h4 class="text-center square-wrapper square square-transition">Projects</h4>
         <div class="d-flex flex-wrap align-self-stretch justify-content-center gap-5">
             {% for project in projects %}
-                <div class="card card-medium bg-dark border square-wrapper square square-transition">
+                <div class="card card-medium bg-transparent shadow square-wrapper square square-transition">
                     <img class="card-img-top" src="{{ media_url }}/{{ project.image }}" height="300px"
                         alt="{{ project.name }}" style="object-fit: cover;">
                     <div class="card-body">
                         <h4 class=" card-title">{{ project.name }}</h4>
                         <p class="card-text">{{ project.description }}</p>
                         {% if project.url %}
-                        <a href="{{ project.url }}" class="btn btn-primary" target="_blank">Website</a>
+                        <a href="{{ project.url }}" class="btn btn-outline-info" target="_blank">Website</a>
                         {% endif %}
                         {% if project.repository %}
-                        <a href="{{ project.repository }}" class="btn btn-primary" target="_blank">Source Code</a>
+                        <a href="{{ project.repository }}" class="btn btn-outline-info" target="_blank">Source Code</a>
                         {% endif %}
                         <hr>
                         <div class="d-flex flex-wrap gap-1">
