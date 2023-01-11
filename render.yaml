@@ -1,9 +1,0 @@
-services:
-    - type: web
-      name: portfolio
-      env: python
-      buildCommand: "./build.sh"
-      startCommand: "gunicorn portfolio.wsgi:application"
-      envVars:
-        - key: WEB_CONCURRENCY
-          value: 4
