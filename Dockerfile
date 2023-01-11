@@ -10,8 +10,5 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
     
 COPY . .
 
-ENV PORT=1000
-
 RUN ["chmod", "+x", "/usr/src/entrypoint.sh"]
 ENTRYPOINT ["/usr/src/entrypoint.sh"]
-CMD ["sh", "-c", "gunicorn", "-b", ":$PORT", "-w", "4", "portfolio.wsgi"]
