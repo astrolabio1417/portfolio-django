@@ -38,7 +38,7 @@ def backup(request):
     if (not request.user.is_superuser):
         return Http404
     
-    subprocess.run("py manage.py dbbackup")
+    subprocess.run("python manage.py dbbackup")
     files = glob.glob("./backup/*")
     latest_file = max(files, key=os.path.getctime)
     file_path = os.path.join(latest_file)
