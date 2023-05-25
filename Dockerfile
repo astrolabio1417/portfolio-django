@@ -7,6 +7,7 @@ WORKDIR /usr/src
 COPY requirements.txt /usr/src
 
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
+RUN pip install -e git+https://github.com/mjs7231/django-dbbackup.git#egg=django-dbbackup
     
 COPY . .
 
