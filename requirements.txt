@@ -4,6 +4,7 @@ botocore==1.29.47
 dj-database-url==1.2.0
 Django==4.1.5
 django-cleanup==6.0.0
+-e git+https://github.com/mjs7231/django-dbbackup.git@790ec8bd297ef24cddfd2618d18d243abd15437e#egg=django_dbbackup
 django-storages==1.13.2
 gunicorn==20.1.0
 install==1.3.5

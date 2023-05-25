@@ -6,8 +6,10 @@ ENV PYTHONDONTWRITEBYTECODE=1
 WORKDIR /usr/src
 COPY requirements.txt /usr/src
 
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
-RUN pip install -e git+https://github.com/mjs7231/django-dbbackup.git#egg=django-dbbackup
+RUN apk update \
+    && apk add git \
+    && pip install --upgrade pip \
+    && pip install --no-cache-dir --upgrade -r requirements.txt
     
 COPY . .
 
