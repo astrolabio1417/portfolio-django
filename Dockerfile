@@ -7,7 +7,8 @@ WORKDIR /usr/src
 COPY requirements.txt /usr/src
 
 RUN apk update \
-    && apk add git \
+    && apk add --no-cache --virtual .build-deps gcc g++ \
+    && apk add --no-cache postgresql-client git \
     && pip install --upgrade pip \
     && pip install --no-cache-dir --upgrade -r requirements.txt
     
