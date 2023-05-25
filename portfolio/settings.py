@@ -175,27 +175,17 @@ DBBACKUP_STORAGE_OPTIONS = {'location': './backup/'}
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGGING = {
-
-    "version": 1,
-
-    "disable_existing_loggers": False,
-
-    "handlers": {
-
-        "console": {
-
-            "class": "logging.StreamHandler",
-
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler'
         },
-
     },
-
-    "root": {
-
-        "handlers": ["console"],
-
-        "level": "WARNING",
-
+    'loggers': {
+        '': {  # 'catch all' loggers by referencing it with the empty string
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
     },
-
 }
