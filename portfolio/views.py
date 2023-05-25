@@ -29,3 +29,24 @@ def home(request):
             "media_url": media_url,
         },
     )
+
+from django.http import HttpResponse, Http404
+import os, subprocess, glob
+
+
+def backup(request):
+    if (not request.user.is_superuser):
+        return Http404
+    
+    subprocess.run("py manage.py dbbackup")
+    files = glob.glob("./backup/*")
+    latest_file = max(files, key=os.path.getctime)
+    file_path = os.path.join(latest_file)
+
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+        
+    raise Http404 

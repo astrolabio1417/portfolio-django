@@ -43,6 +43,7 @@ if os.environ.get("DEPLOY", False) == "True":
 # Application definition
 
 INSTALLED_APPS = [
+    'dbbackup',
     "django_cleanup.apps.CleanupConfig",
     "portfolio",
     "django.contrib.admin",
@@ -107,6 +108,7 @@ if not DEBUG:
     }
 
 
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -164,6 +166,8 @@ STATICFILES_DIRS = [
 # whitenoise  forever-cacheable files and compression support
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': './backup/'}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
