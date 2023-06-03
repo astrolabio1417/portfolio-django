@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+    postgres_dev:
+        image: postgres:14.0-alpine
+        volumes:
+            - portfolio_postgres_data:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=username
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_DB=mydatabase
+            - POSTGRES_PORT=5432
+            - POSTGRES_HOST=postgres_dev
+    p_backend_dev:
+        build:
+            dockerfile: Dockerfile.dev
+        ports:
+            - 8000:8000
+        depends_on:
+            - postgres_dev
+        volumes:
+            - ./:/usr/src
+        environment:
+            - DEBUG=True
+            - PORT=8000
+            - ALLOWED_HOSTS=localhost
+            - POSTGRES_USER=username
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_DB=mydatabase
+            - POSTGRES_PORT=5432
+            - POSTGRES_HOST=postgres_dev
+
+volumes:
+    portfolio_postgres_data:

@@ -1,15 +1,11 @@
 from django.shortcuts import render
 from django.conf import settings
-from .models import Technology, Project
+from .models import Technology, Project, UserInfo
 
 
 def home(request):
     technologies = Technology.objects.all()
-    languages = technologies.filter(type="L")
-    platforms = technologies.filter(type="P")
-    frontends = technologies.filter(type="FE")
-    backends = technologies.filter(type="BE")
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by("date")
     media_url = f"https://{settings.AWS_S3_CUSTOM_DOMAIN}"
 
     if settings.DEBUG:
@@ -17,16 +13,13 @@ def home(request):
 
     return render(
         request,
-        "home.html",
+        "index.html",
         {
-            "technologies": {
-                "language": languages,
-                "frontend": frontends,
-                "backend": backends,
-                "platform": platforms,
-            },
+            "skills": technologies,
             "projects": projects,
+            "projects_reverse": list(reversed(projects)),
             "media_url": media_url,
+            "user_info": UserInfo.objects.first(),
         },
     )
 
