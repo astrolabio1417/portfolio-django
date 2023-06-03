@@ -39,7 +39,7 @@ Rouel Astrolabio Portfolio
         {% for education in user_info.educations.all %}
         <div class="card-item fade-left">
           <h3>{{ education.name }}</h3>
-          <p>{{ education.course }}<br /> {{ education.start_date.year }} - education.end_date.year</p>
+          <p>{{ education.course }}<br /> {{ education.start_date.year }} - {{ education.end_date.year }}</p>
         </div>
         {% endfor %}
       </div>
