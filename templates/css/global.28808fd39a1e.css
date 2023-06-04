@@ -217,9 +217,6 @@ h2 {
   padding: 2rem;
   box-shadow: 1px 1px 5px white;
 }
-.card-item .button-container {
-  margin-top: auto;
-}
 
 @media (max-width: 767px) {
   .section {
@@ -268,4 +265,4 @@ h2 {
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
-}/*# sourceMappingURL=global.css.map */
+}/*# sourceMappingURL=global.28808fd39a1e.css.map */

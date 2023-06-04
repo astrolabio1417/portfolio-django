@@ -221,6 +221,10 @@ h2 {
     border-radius: 0.6rem;
     padding: 2rem;
     box-shadow: 1px 1px 5px white;
+
+    .button-container {
+        margin-top: auto;
+    }
 }
 
 @media (max-width: 767px) {

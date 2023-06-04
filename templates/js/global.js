@@ -89,7 +89,7 @@ $(document).ready(function (app) {
             y: 120,
             duration: 0.4,
             ease: "power1.out",
-            stagger: 0.2,
+            stagger: 0.05,
             opacity: 0,
         });
         createScrollTrigger(el, tl);
