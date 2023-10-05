@@ -51,12 +51,10 @@ Rouel Astrolabio Portfolio
         {% for experience in user_info.experiences.all %}
         <div class="card-item fade-left">
           <h3>{{ experience.name }}</h3>
-          <p>{{ experience.position }}<br />{{ experience.start_date.year }} -
-            {% if experience.is_current %}
-            Current
-            {% else %}
-            {{ education.end_date.year }}
-            {% endif %}
+          <p>{{ experience.position }}<br />
+            {{ experience.start_date.year }}
+            -
+            {{ experience.end_date.year }}
           </p>
         </div>
         {% endfor %}

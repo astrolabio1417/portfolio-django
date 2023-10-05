@@ -103,7 +103,11 @@ $(document).ready(function (app) {
             start: "center center",
             end: () =>
                 "+=" +
-                (workList.clientHeight - $(".sticky-image")?.last().height()),
+                (workList.clientHeight -
+                    $(".sticky-content")
+                        ?.last()
+                        .find(".sticky-image")
+                        .height()),
             pin: true,
             pinSpacing: false,
         });

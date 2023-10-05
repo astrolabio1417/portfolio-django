@@ -74,6 +74,7 @@ button:hover {
 
 .button-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -101,10 +102,16 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .works-section .header {
   text-align: center;
+}
+
+.contact-section {
+  height: 100vh;
+  justify-content: center;
 }
 
 .work-list {
@@ -129,7 +136,7 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  padding: 2rem;
+  padding-block: 1rem;
   width: 100%;
 }
 .work-list .work-item .work-image {
@@ -139,7 +146,8 @@ h2 {
 .work-list .work-item .work-image img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .sticky-content {
@@ -151,20 +159,21 @@ h2 {
 
 .sticky-content .sticky-image {
   max-width: 100%;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
-  padding: 2em;
+  height: -moz-fit-content;
   height: fit-content;
-  background-color: var(--primary-bg-color);
 }
 
 .sticky-content img {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 1.5rem;
 }
 
@@ -210,15 +219,13 @@ h2 {
   width: 100%;
   max-width: 550px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 15px;
   border: solid 2px;
   border-radius: 0.6rem;
   padding: 2rem;
   box-shadow: 1px 1px 5px white;
-}
-.card-item .button-container {
-  margin-top: auto;
 }
 
 @media (max-width: 767px) {
