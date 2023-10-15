@@ -74,7 +74,6 @@ button:hover {
 
 .button-container {
   display: flex;
-  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -102,16 +101,10 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
 }
 
 .works-section .header {
   text-align: center;
-}
-
-.contact-section {
-  height: 100vh;
-  justify-content: center;
 }
 
 .work-list {
@@ -136,7 +129,7 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  padding-block: 1rem;
+  padding: 2rem;
   width: 100%;
 }
 .work-list .work-item .work-image {
@@ -166,8 +159,10 @@ h2 {
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
+  padding: 2em;
   height: -moz-fit-content;
   height: fit-content;
+  background-color: var(--primary-bg-color);
 }
 
 .sticky-content img {
@@ -219,13 +214,15 @@ h2 {
   width: 100%;
   max-width: 550px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   gap: 15px;
   border: solid 2px;
   border-radius: 0.6rem;
   padding: 2rem;
   box-shadow: 1px 1px 5px white;
+}
+.card-item .button-container {
+  margin-top: auto;
 }
 
 @media (max-width: 767px) {
@@ -269,4 +266,9 @@ h2 {
   padding-bottom: 0.1em;
   margin-bottom: -0.1em;
   transform-origin: bottom;
-}/*# sourceMappingURL=global.css.map */
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}/*# sourceMappingURL=global.61bcc4fcec79.css.map */
