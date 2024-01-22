@@ -1,0 +1,534 @@
+[
+    {
+        "model": "portfolio.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$390000$MJUUkuV8iiU1iyp5Lw6yzk$1bh+qHE2b6aIhDMcN7D9uzdkUa2m4DazTrg1PJK5Rq0=",
+            "last_login": "2024-01-22T14:48:03Z",
+            "is_superuser": true,
+            "username": "astrolabio1417",
+            "first_name": "Rouel",
+            "last_name": "Astrolabio",
+            "email": "astrolabio1417@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2024-01-22T06:12:34Z",
+            "contact_number": null,
+            "resume": "resume/Rouel_Astrolabio_Resume.pdf.pdf",
+            "github_url": "https://github.com/astrolabio1417/",
+            "linked_url": "https://www.linkedin.com/in/rouel-astrolabio/",
+            "about": "A passionate Full Stack Software Developer having an experience of building Web with Typescript / Python / Reactjs / Django and some other cool libraries and frameworks.",
+            "groups": [],
+            "user_permissions": [],
+            "technologies": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ]
+        }
+    },
+    {
+        "model": "portfolio.technology",
+        "pk": 1,
+        "fields": {
+            "name": "Javascript",
+            "logo": "logo/logo_javascript.svg"
+        }
+    },
+    {
+        "model": "portfolio.technology",
+        "pk": 2,
+        "fields": {
+            "name": "Python",
+            "logo": "logo/logo_file-type-python.svg"
+        }
+    },
+    {
+        "model": "portfolio.technology",
+        "pk": 3,
+        "fields": {
+            "name": "Typescript",
+            "logo": "logo/logo_typescript-icon.svg"
+        }
+    },
+    {
+        "model": "portfolio.technology",
+        "pk": 4,
+        "fields": {
+            "name": "Docker",
+            "logo": "logo/logo_docker-icon.svg"
+        }
+    },
+    {
+        "model": "portfolio.technology",
+        "pk": 5,
+        "fields": {
+            "name": "Node",
+            "logo": "logo/logo_nodejs-icon.svg"
+        }
+    },
+    {
+        "model": "portfolio.technology",
+        "pk": 6,
+        "fields": {
+            "name": "React",
+            "logo": "logo/logo_react.svg"
+        }
+    },
+    {
+        "model": "portfolio.technology",
+        "pk": 7,
+        "fields": {
+            "name": "Tailwind",
+            "logo": "logo/logo_tailwindcss-icon-svgrepo-com.svg"
+        }
+    },
+    {
+        "model": "portfolio.technology",
+        "pk": 8,
+        "fields": {
+            "name": "Digital Ocean",
+            "logo": "logo/digitalocean-icon.svg"
+        }
+    },
+    {
+        "model": "portfolio.education",
+        "pk": 1,
+        "fields": {
+            "user": 2,
+            "school": "Asian Institute of Computer Studies",
+            "degree": "Bachelor of Science",
+            "major": "Computer Science",
+            "start_date": "2018-04-01",
+            "end_date": "2022-08-01"
+        }
+    },
+    {
+        "model": "portfolio.experience",
+        "pk": 1,
+        "fields": {
+            "user": 2,
+            "company": "Dotty Solutions Inc. (formerly Dottystyle Creative)",
+            "position": "Frontend Developer",
+            "start_date": "2022-11-14",
+            "end_date": "2023-06-15",
+            "technologies": [
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    },
+    {
+        "model": "portfolio.project",
+        "pk": 1,
+        "fields": {
+            "user": 2,
+            "name": "Animeyubi",
+            "image": "project/image/animeyubiv3.png",
+            "url": "http://animeyubi.com",
+            "repository": null,
+            "description": "Animeyubi is a free video-sharing website that makes it easy to watch online anime videos. Users can also track their bookmarks and history.",
+            "date": "2019-01-01",
+            "technologies": [
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    },
+    {
+        "model": "portfolio.project",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "name": "Music Radio App",
+            "image": "project/image/animebeats_u7Lx975.png",
+            "url": "https://music.animeyubi.com/",
+            "repository": "https://github.com/astrolabio1417/anime-ost-radio/",
+            "description": "AnimeBeats is a digital music service that gives you access to thousands of anime songs.",
+            "date": "2023-06-01",
+            "technologies": [
+                1,
+                3,
+                4
+            ]
+        }
+    },
+    {
+        "model": "portfolio.project",
+        "pk": 3,
+        "fields": {
+            "user": 2,
+            "name": "Osu Bot",
+            "image": "project/image/osubot.png",
+            "url": "https://osubot.fly.dev/",
+            "repository": "https://github.com/astrolabio1417/legacy-osu-bot",
+            "description": "This project automates Osu! multiplayer lobby management, streamlining host and beatmap rotations through a queue system. Players join a queue upon entering a lobby, and beatmap options are filtered based on host-defined room settings. The user-friendly interface facilitates room management, including viewing, creating, updating, and deleting rooms, improving overall user experience.",
+            "date": "2022-09-01",
+            "technologies": [
+                2,
+                3,
+                4
+            ]
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2024-01-22T06:13:55.139Z",
+            "user": 2,
+            "content_type": 2,
+            "object_id": "1",
+            "object_repr": "Technology object (1)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2024-01-22T06:15:43.901Z",
+            "user": 2,
+            "content_type": 1,
+            "object_id": "2",
+            "object_repr": "root",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Technologies\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2024-01-22T06:19:07.143Z",
+            "user": 2,
+            "content_type": 3,
+            "object_id": "1",
+            "object_repr": "root Animeyubi",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2024-01-22T06:20:14.888Z",
+            "user": 2,
+            "content_type": 4,
+            "object_id": "1",
+            "object_repr": "root Dotty Solutions Inc. (formerly Dottystyle Creative)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2024-01-22T06:21:42.033Z",
+            "user": 2,
+            "content_type": 5,
+            "object_id": "1",
+            "object_repr": "root Asian Institute of Computer Studies",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2024-01-22T06:22:53.169Z",
+            "user": 2,
+            "content_type": 2,
+            "object_id": "2",
+            "object_repr": "Python",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2024-01-22T06:23:03.979Z",
+            "user": 2,
+            "content_type": 2,
+            "object_id": "3",
+            "object_repr": "Typescript",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2024-01-22T06:23:12.282Z",
+            "user": 2,
+            "content_type": 2,
+            "object_id": "4",
+            "object_repr": "Docker",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2024-01-22T06:23:16.919Z",
+            "user": 2,
+            "content_type": 1,
+            "object_id": "2",
+            "object_repr": "root",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Technologies\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2024-01-22T06:23:16.978Z",
+            "user": 2,
+            "content_type": 1,
+            "object_id": "2",
+            "object_repr": "root",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2024-01-22T06:23:31.299Z",
+            "user": 2,
+            "content_type": 3,
+            "object_id": "1",
+            "object_repr": "root Animeyubi",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Technologies\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2024-01-22T06:23:44.398Z",
+            "user": 2,
+            "content_type": 4,
+            "object_id": "1",
+            "object_repr": "root Dotty Solutions Inc. (formerly Dottystyle Creative)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Technologies\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2024-01-22T12:48:10.333Z",
+            "user": 2,
+            "content_type": 1,
+            "object_id": "2",
+            "object_repr": "root",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2024-01-22T12:48:17.649Z",
+            "user": 2,
+            "content_type": 1,
+            "object_id": "2",
+            "object_repr": "astrolabio1417",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2024-01-22T12:52:49.596Z",
+            "user": 2,
+            "content_type": 1,
+            "object_id": "2",
+            "object_repr": "astrolabio1417",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"About\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2024-01-22T14:48:21.648Z",
+            "user": 2,
+            "content_type": 3,
+            "object_id": "1",
+            "object_repr": "astrolabio1417 Animeyubi",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2024-01-22T15:42:43.974Z",
+            "user": 2,
+            "content_type": 1,
+            "object_id": "2",
+            "object_repr": "astrolabio1417",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Github url\", \"Linked url\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2024-01-22T15:45:31.971Z",
+            "user": 2,
+            "content_type": 1,
+            "object_id": "2",
+            "object_repr": "astrolabio1417",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Resume\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2024-01-22T15:51:21.842Z",
+            "user": 2,
+            "content_type": 3,
+            "object_id": "2",
+            "object_repr": "astrolabio1417 Music Radio App",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2024-01-22T15:54:50.322Z",
+            "user": 2,
+            "content_type": 3,
+            "object_id": "3",
+            "object_repr": "astrolabio1417 Osu Bot",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2024-01-22T17:27:24.513Z",
+            "user": 2,
+            "content_type": 3,
+            "object_id": "3",
+            "object_repr": "astrolabio1417 Osu Bot",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2024-01-22T17:28:18.384Z",
+            "user": 2,
+            "content_type": 2,
+            "object_id": "5",
+            "object_repr": "Node",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2024-01-22T17:28:28.378Z",
+            "user": 2,
+            "content_type": 2,
+            "object_id": "6",
+            "object_repr": "React",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2024-01-22T17:29:54.232Z",
+            "user": 2,
+            "content_type": 2,
+            "object_id": "7",
+            "object_repr": "Tailwind",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2024-01-22T17:30:06.579Z",
+            "user": 2,
+            "content_type": 1,
+            "object_id": "2",
+            "object_repr": "astrolabio1417",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Technologies\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2024-01-22T17:30:35.523Z",
+            "user": 2,
+            "content_type": 2,
+            "object_id": "8",
+            "object_repr": "Digital Ocean",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2024-01-22T17:30:37.956Z",
+            "user": 2,
+            "content_type": 1,
+            "object_id": "2",
+            "object_repr": "astrolabio1417",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Technologies\"]}}]"
+        }
+    }
+]
