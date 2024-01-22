@@ -1,25 +1,35 @@
 version: "3.3"
 
+x-app: &default-app
+    build:
+        dockerfile: Dockerfile.dev
+    command: "python manage.py runserver 0.0.0.0:8000"
+    volumes:
+        - ./:/usr/src
+    depends_on:
+            - postgres_dev
+
 services:
     postgres_dev:
         image: postgres:14.0-alpine
         volumes:
-            - portfolio_postgres_data:/var/lib/postgresql/data/
+            - portfolio_postgres_data_v3:/var/lib/postgresql/data/
         environment:
             - POSTGRES_USER=username
             - POSTGRES_PASSWORD=password
             - POSTGRES_DB=mydatabase
             - POSTGRES_PORT=5432
             - POSTGRES_HOST=postgres_dev
+    tailwind:
+        <<: *default-app
+        command: "python manage.py tailwind start"
+        # Without tty, no stdin, and tailwind watcher aborts
+        # https://github.com/tailwindlabs/tailwindcss/issues/5324
+        tty: true
     p_backend_dev:
-        build:
-            dockerfile: Dockerfile.dev
+        <<: *default-app
         ports:
             - 8000:8000
-        depends_on:
-            - postgres_dev
-        volumes:
-            - ./:/usr/src
         environment:
             - DEBUG=True
             - PORT=8000
@@ -31,4 +41,4 @@ services:
             - POSTGRES_HOST=postgres_dev
 
 volumes:
-    portfolio_postgres_data:
+    portfolio_postgres_data_v3:

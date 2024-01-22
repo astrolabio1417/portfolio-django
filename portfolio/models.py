@@ -1,84 +1,57 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
+
+class User(AbstractUser):
+    contact_number = models.IntegerField(blank=True, null=True)
+    resume = models.FileField(upload_to="resume/v2", blank=True, null=True)
+    github_url = models.URLField(blank=True, null=True)
+    linked_url = models.URLField(blank=True, null=True)
+    about = models.CharField(max_length=500, blank=True, null=True)
+    technologies = models.ManyToManyField("portfolio.Technology")
 
 
 class Technology(models.Model):
-    TECHNOLOGY_CHOICES = [
-        ("L", "LANGUAGE"),
-        ("BE", "BACKEND"),
-        ("FE", "FRONTEND"),
-        ("P", "PLATFORM"),
-    ]
     name = models.CharField(max_length=25)
-    logo = models.FileField(upload_to="logo")
-    type = models.CharField(choices=TECHNOLOGY_CHOICES, max_length=2)
+    logo = models.FileField(upload_to="logo/v2")
 
-    def __str__(self) -> str:
-        return f"{self.name} | {self.type}"
+    def __str__(self):
+        return self.name
+
+
+class Education(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    school = models.CharField(max_length=100)
+    degree = models.CharField(max_length=100)
+    major = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.user.username} {self.school}"
+
+
+class Experience(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    company = models.CharField(max_length=100)
+    position = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    technologies = models.ManyToManyField(Technology)
+
+    def __str__(self):
+        return f"{self.user.username} {self.company}"
 
 
 class Project(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to="project/image")
     url = models.URLField(blank=True, null=True)
     repository = models.URLField(blank=True, null=True)
     description = models.TextField()
     technologies = models.ManyToManyField(Technology)
-    date = models.DateField(null=True, blank=True)
+    date = models.DateField()
 
-    def __str__(self) -> str:
-        return f"{self.pk} {self.name}"
-    
-
-class Education(models.Model):
-    name = models.CharField(max_length=50)
-    course = models.CharField(max_length=50)
-    start_date = models.DateField(null=True, blank=True)
-    end_date = models.DateField(null=True, blank=True)
-
-    def __str__(self) -> str:
-        return self.name
-
-class Experience(models.Model):
-    name = models.CharField(max_length=50)
-    position = models.CharField(max_length=50)
-    start_date = models.DateField(null=True, blank=True)
-    end_date = models.DateField(null=True, blank=True)
-    info = models.CharField(max_length=255)
-
-    def __str__(self) -> str:
-        return self.name
-    
-    @property
-    def is_current(self):
-        import datetime
-        return self.end_date > datetime.datetime.now().date()
-    
-class Certificate(models.Model):
-    name = models.CharField(max_length=50)
-    info = models.CharField(max_length=255)
-    url = models.URLField(blank=True, null=True)
-
-    def __str__(self) -> str:
-        return self.name
-
-class Social(models.Model):
-    name = models.CharField(max_length=50)
-    url = models.URLField()
-
-    def __str__(self) -> str:
-        return self.name
-
-
-class UserInfo(models.Model):
-    hero_title = models.CharField(max_length=255)
-    hero_sub = models.CharField(max_length=255)
-    resume = models.FileField(upload_to="resume")
-    educations = models.ManyToManyField(Education)
-    experiences = models.ManyToManyField(Experience)
-    certificates = models.ManyToManyField(Certificate)
-    socials = models.ManyToManyField(Social)
-    email = models.EmailField(blank=True, null=True)
-
-    def __str__(self) -> str:
-        return f"{self.id} {self.email}"
+    def __str__(self):
+        return f"{self.user.username} {self.name}"

@@ -1,0 +1,19 @@
+.github-mask {
+    -webkit-mask: url(/static/portfolio/images/github.svg) no-repeat center / contain;
+    mask: url(/static/portfolio/images/github.svg) no-repeat center / contain;
+}
+
+.website-mask {
+    -webkit-mask: url(/static/portfolio/images/website.svg) no-repeat center / contain;
+    mask: url(/static/portfolio/images/website.svg) no-repeat center / contain;
+}
+
+@keyframes moveRandomly {
+    0% {transform: translate(0, 0); filter: blur(3px);}
+    50% { transform: translate(25%, 5%)  scale(150%); filter: blur(0px);}
+    100% { transform: translate(0, 0) scale(100%); filter: blur(3px);}
+}
+
+.animate-randomMove {
+    animation: moveRandomly 10s infinite ease-in-out;
+}

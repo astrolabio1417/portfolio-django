@@ -1,0 +1,108 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>{% block title %} {% endblock %}</title>
+        <meta name="description" content />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type='text/css'
+            href="{% static 'portfolio/css/index.css' %}">
+        {% tailwind_css %}
+    </head>
+
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">
+                You are using an <strong>outdated</strong> browser. Please
+                <a href="#">upgrade your browser</a> to improve your experience.
+            </p>
+        <![endif]-->
+
+        <!-- <nav
+            class="w-full max-w-4xl mx-auto px-2 flex justify-end items-center h-12 font-medium text-sm uppercase"
+        >
+            <div class="flex items-center gap-2">
+                <a href="#projects">projects</a>
+                <a href="#contact">Contact</a>
+                <a href="#stacks">Stacks</a>
+            </div>
+        </nav> -->
+        {% block content %} {% endblock %}
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/split-type"></script>
+        <style>
+        </style>
+        <script>
+            let typeSplit = new SplitType("[text-split]", {
+                types: "words, chars",
+                tagName: "span"
+            });
+
+            document.querySelectorAll("[letters-fade-in]").forEach((value) => {
+                let tl = gsap.timeline({ paused: true });
+                const elements = [...value.querySelectorAll(".char")]
+                tl.from(elements, { opacity: 0, duration: 0.2, ease: "power1.out", stagger: { amount: elements.length * 0.025 } });
+                createScrollTrigger(value, tl);
+            })
+
+            document.querySelectorAll("[words-slide-from-right]").forEach((value) => {
+                let tl = gsap.timeline({ paused: true });
+                const elements = [...value.querySelectorAll(".word")]
+                tl.from(elements, { opacity: 0, x: "2rem", duration: 0.6, ease: "power2.out", stagger: { amount: 0.2 } });
+                createScrollTrigger(value, tl);
+            });
+
+            document.querySelectorAll("[slide-from-right]").forEach((value) => {
+                let tl = gsap.timeline({ paused: true });
+                tl.from(value, { opacity: 0, x: "2rem", duration: 0.6, ease: "power2.out", stagger: { amount: 0.2 } });
+                createScrollTrigger(value, tl);
+            });
+
+            document.querySelectorAll("[slide-from-bottom]").forEach((value) => {
+                let tl = gsap.timeline({ paused: true });
+                const delay = value.dataset?.delay ? parseFloat(value.dataset.delay) : 0
+                tl.from(value, { opacity: 0, y: "2rem", duration: 0.6, ease: "power2.out", stagger: { amount: 0.2 } }, delay);
+                createScrollTrigger(value, tl);
+            });
+            
+            document.querySelectorAll("[elements-slide-from-bottom]").forEach((value) => {
+                let tl = gsap.timeline({ paused: true });
+                const elements = Array.from(value.children)
+                tl.from(elements, { opacity: 0, y: "2rem", duration: 0.6, ease: "power2.out", stagger: { amount: 0.2 } });
+                createScrollTrigger(value, tl);
+            });
+            
+
+
+            function createScrollTrigger(triggerElement, timeline) {
+                const start = triggerElement.dataset?.start || "top 60%"
+
+                console.log({triggerElement: triggerElement, start: start})
+                ScrollTrigger.create({
+                    trigger: triggerElement,
+                    start: "top bottom",
+                    onLeaveBack: () => {
+                        timeline.progress(0);
+                        timeline.pause();
+                    }
+                });
+                ScrollTrigger.create({
+                    trigger: triggerElement,
+                    start,
+                    onEnter: () => timeline.play()
+                });
+            }
+        </script>
+    </body>
+</html>
