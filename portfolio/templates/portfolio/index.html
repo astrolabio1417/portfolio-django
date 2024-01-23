@@ -1,149 +1,20 @@
+
+
 {% extends 'portfolio/base.html' %}
+
+{% block title %}Rouel Astrolabio Portfolio{% endblock %}
+
 {% block content %}
 {% load static %}
 
-<div class="max-w-6xl mx-auto px-5">
-    <div
-        class="flex flex-col gap-5 justify-center items-center h-full min-h-[100vh]">
-        <div
-            class="bg-black rounded-full max-h-[10rem] max-w-[10rem] h-[10rem] w-[10rem] overflow-hidden shadow-md">
-            <img src="{% static 'portfolio/images/yow.jpg' %}"
-                class="w-full h-full object-fill animate-randomMove" alt="bg">
-        </div>
-        <h1
-            class="text-3xl lg:text-5xl xl:text-6xl text-center font-bold w-full text-gray-800"
-            letters-fade-in text-split>
-            Hi, I'm
-            <span class="text-pink-500">
-                {{ user.first_name }}
-                {{ user.last_name }},
-            </span><br />
-            a passionate Fullstack Developer.
-        </h1>
-        <button
-            slide-from-bottom data-delay="1" data-start="top 100%"
-            onclick="document.querySelector('#about').scrollIntoView({ behavior: 'smooth', block: 'center' })"
-            class="shadow-md overflow-hidden relative before:absolute before:top-0 before:-left-full before:h-full before:w-full before:bg-pink-500 before:transition-transform before:duration-500 hover:before:translate-x-full px-5 py-2 bg-black text-white hover:text-white font-bold text-xl rounded-full">
-            <span class="relative z-1"> Know more </span>
-        </button>
-    </div>
+{% include 'portfolio/banner.html' %}
+{% include 'portfolio/hr.html' %}
+{% include 'portfolio/about.html' %}
+{% include 'portfolio/hr.html' %}
+{% include 'portfolio/projects.html' %}
+
+<div class="max-w-6xl mx-auto w-full h-full flex justify-center pb-5"
+    slide-from-right data-start="top 100%" data-delay="0.3">
+    {% include 'portfolio/divergence-meter.html' %}
 </div>
-
-<div class="max-w-6xl m-auto">
-    <div class="mx-2 h-[2px] bg-gray-300"></div>
-</div>
-
-<div id="about" class="py-15 my-[3rem] md:my-[5.5rem]">
-    <div class="flex flex-col max-w-6xl mx-auto px-2 gap-5">
-        <h2
-            class="capitalize text-2xl md:text-4xl font-bold text-center text-gray-800"
-            slide-from-right>
-            About me
-        </h2>
-
-        {% if user.about %}
-        <p class="text-center font-medium max-w-2xl mx-auto"
-            slide-from-right>
-            {{ user.about }}
-        </p>
-        {% endif %}
-
-        {% if technologies %}
-        <div class="flex flex-wrap gap-5 justify-center items-center"
-            elements-slide-from-bottom>
-            {% for tech in technologies %}
-            <div
-                class="flex flex-col gap-2 justify-center items-center hover:opacity-80">
-                <img src="{{ tech.logo.url}}" alt class="h-9 w-auto" />
-                <span class="text-xs">{{ tech.name }}</span>
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
-
-        <div class="flex flex-wrap justify-center gap-2 mt-5"
-            elements-slide-from-bottom>
-            {% if user.resume %}
-            <a
-                href="{{ user.resume.url}}"
-                class="shadow-md overflow-hidden relative before:absolute before:top-0 before:-left-full before:h-full before:w-full before:bg-pink-500 before:transition-transform before:duration-500 hover:before:translate-x-full px-5 py-2 bg-black text-white hover:text-white font-bold text-xl rounded-full">
-                <span class="relative z-1"> Resume </span>
-            </a>
-            {% endif %}
-
-            {% if user.github_url %}
-            <a
-                href="{{ user.github_url }}"
-                class="shadow-md overflow-hidden relative before:absolute before:top-0 before:-left-full before:h-full before:w-full before:bg-pink-500 before:transition-transform before:duration-500 hover:before:translate-x-full px-5 py-2 bg-black text-white hover:text-white font-bold text-xl rounded-full">
-                <span class="relative z-1"> Github </span>
-            </a>
-            {% endif %}
-
-            {% if user.email %}
-            <a
-                href="mailto:{{ user.email }}"
-                class="shadow-md overflow-hidden relative before:absolute before:top-0 before:-left-full before:h-full before:w-full before:bg-pink-500 before:transition-transform before:duration-500 hover:before:translate-x-full px-5 py-2 bg-black text-white hover:text-white font-bold text-xl rounded-full">
-                <span class="relative z-1"> Email </span>
-            </a>
-            {% endif %}
-        </div>
-    </div>
-</div>
-
-<div class="max-w-6xl m-auto">
-    <div class="mx-2 h-[2px] bg-gray-300"></div>
-</div>
-
-<div
-    id="projects"
-    class="max-w-6xl mx-auto px-2 my-[3rem] md:my-[5.5rem]">
-    <h2
-        class="capitalize text-2xl md:text-4xl font-bold text-center text-gray-800 mb-5"
-        slide-from-right>
-        Projects
-    </h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-3 gap-5 "
-        elements-slide-from-bottom>
-        {% for project in projects %}
-        <div
-            class="relative overflow-hidden group rounded shadow-md bg-gray-700">
-            {% if project.image %}
-            <img
-                class="w-full h-full object-cover"
-                src="{{ project.image.url }}"
-                alt />
-            {% endif %}
-
-            <div
-                class="absolute p-2 md:p-5 z-1 inset-0 w-full h-full bg-black bg-opacity-70 opacity-0 pointer-events-none transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:pointer-events-auto flex flex-col text-white">
-                <div class="flex gap-2 ml-auto">
-                    {% if project.url %}
-                    <a class="h-8 w-8 website-mask bg-white" title="website"
-                        href="{{ project.url }}" alt="website"></a>
-                    {% endif %}
-                    {% if project.repository %}
-                    <a class="h-8 w-8 github-mask bg-white" ttile="github"
-                        href="{{ project.repository }}" alt="github"></a>
-                    {% endif %}
-                </div>
-                <div class="mt-auto overflow-y-auto">
-                    <p class="text-sm">{{ project.description }}</p>
-                    <span class="font-bold text-lg">{{ project.name }}</span>
-                    <div class="flex gap-2 mt-1">
-                        {% for tech in project.technologies.all %}
-                        <div class="h-5 w-5" title="{{ tech.name }}">
-                            <img class="w-full h-full object-fill"
-                                src="{{ tech.logo.url }}" alt>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-
-<div class="pb-[5.5rem]"></div>
 {% endblock %}

@@ -1,0 +1,51 @@
+
+<div
+    id="projects"
+    class="max-w-6xl mx-auto px-5 my-[3rem] md:my-[5.5rem] overflow-y-hidden">
+    <h2
+        slide-from-right
+        class="capitalize text-2xl md:text-4xl font-bold text-center text-gray-800 mb-5">
+        Projects
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 sm:grid-cols-3 gap-5 "
+        elements-slide-from-bottom>
+        {% for project in projects %}
+        <div
+            class="relative overflow-hidden group rounded shadow-md bg-gray-700">
+            {% if project.image %}
+            <img
+                class="w-full h-full object-cover"
+                src="{{ project.image.url }}"
+                alt />
+            {% endif %}
+
+            <div
+                class="absolute p-2 md:p-5 z-1 inset-0 w-full h-full bg-black bg-opacity-70 opacity-0 pointer-events-none transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:pointer-events-auto flex flex-col text-white">
+                <div class="flex gap-2 ml-auto">
+                    {% if project.url %}
+                    <a class="h-8 w-8 website-mask bg-white" title="website"
+                        href="{{ project.url }}" alt="website"></a>
+                    {% endif %}
+                    {% if project.repository %}
+                    <a class="h-8 w-8 github-mask bg-white" title="github"
+                        href="{{ project.repository }}" alt="github"></a>
+                    {% endif %}
+                </div>
+                <div class="mt-auto overflow-y-auto">
+                    <p class="text-sm">{{ project.description }}</p>
+                    <span class="font-bold text-lg">{{ project.name }}</span>
+                    <div class="flex gap-2 mt-1">
+                        {% for tech in project.technologies.all %}
+                        <div class="h-5 w-5" title="{{ tech.name }}">
+                            <img class="w-full h-full object-fill"
+                                src="{{ tech.logo.url }}" alt>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
