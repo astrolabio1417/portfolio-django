@@ -7,14 +7,13 @@
 {% block content %}
 {% load static %}
 
-{% include 'portfolio/banner.html' %}
-{% include 'portfolio/hr.html' %}
-{% include 'portfolio/about.html' %}
-{% include 'portfolio/hr.html' %}
-{% include 'portfolio/projects.html' %}
-
-<div class="max-w-6xl mx-auto w-full h-full flex justify-center pb-5"
-    slide-from-right data-start="top 100%" data-delay="0.3">
-    {% include 'portfolio/divergence-meter.html' %}
+<div class="relative w-full h-full overflow-y-hidden">
+    {% include 'portfolio/banner.html' %}
+    {% include 'portfolio/parallax.html' %}
+    {% include 'portfolio/hr.html' %}
+    {% include 'portfolio/about.html' %}
+    {% include 'portfolio/hr.html' %}
+    {% include 'portfolio/projects.html' %}
 </div>
+
 {% endblock %}
