@@ -1,0 +1,51 @@
+<div
+    class="max-w-6xl mx-auto px-5 py-[3rem] md:py-[5.5rem] w-full overflow-hidden flex flex-col gap-10">
+    <h2
+        class="slide-from-bottom-left capitalize text-2xl md:text-4xl font-bold text-center text-gray-800 mb-5">
+        Projects
+    </h2>
+
+    {% for project in projects %}
+    <div class="flex flex-col lg:flex-row gap-3 slide-from-bottom-left">
+        <div class="flex-grow">
+            <div class="mt-auto overflow-y-auto">
+                <a href="{{project.url}}"
+                    class="font-bold text-xl underline hover:text-pink-500">
+                    {{ project.name }}
+                </a>
+                <p class="mt-2">{{ project.description }}</p>
+
+                <div class="flex flex-wrap gap-2 mt-3">
+                    {% for tech in project.technologies.all %}
+                    <div
+                        class="flex gap-2 items-center rounded p-2 bg-gray-900 text-white text-sm">
+                        <div class="h-3 w-3" title="{{ tech.name }}">
+                            <img class="w-full h-full object-fill lazy"
+                                data-src="{{ tech.logo.url }}"
+                                alt="{{ tech.name }}">
+                        </div>
+                        {{tech.name}}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 mb-3 mt-5 text-sm">
+                {% if project.repository %}
+                <a class="h-5 w-5 github-mask bg-black" title="github"
+                    href="{{ project.repository }}" alt="github"></a>
+                <a title="github"
+                    href="{{ project.repository }}" alt="github">Source</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <img src="{{project.image.url}}"
+            class="object-cover w-full lg:max-w-2xl h-auto rounded border shadow"
+            alt="{{project.name}} image" />
+    </div>
+    <div class="w-3/4 mx-auto">
+        {% include 'portfolio/hr.html' %}
+    </div>
+    {% endfor %}
+</div>
