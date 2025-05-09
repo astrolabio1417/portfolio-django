@@ -2,3 +2,5 @@ staticfiles
 db.sqlite3
 media
 /.history
+**/__pycache__
+**/*.pyc
