@@ -6,35 +6,32 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html lang="en" class="overflow-x-hidden max-w-full w-full">
-    <head>
-        <meta charset="utf-8" />
-        <title>{% block title %} {% endblock %}</title>
-        <meta name="description" content="Portfolio" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {% tailwind_css %}
-        <link rel="stylesheet" type="text/css"
-            href="{% static 'portfolio/css/index.css' %}" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap"
-            rel="stylesheet">
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %} {% endblock %}</title>
+    <meta name="description" content="Portfolio" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% tailwind_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/index.css' %}" />
 
-    <body class="overflow-x-hidden max-w-full">
-        <!--[if lt IE 7]>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+</head>
+
+<body class="overflow-x-hidden max-w-full">
+    <!--[if lt IE 7]>
             <p class="browsehappy">
                 You are using an <strong>outdated</strong> browser. Please
                 <a href="#">upgrade your browser</a> to improve your experience.
             </p>
         <![endif]-->
-        {% block content %} {% endblock %}
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-        <script src="{% static 'portfolio/js/animation.js' %}"></script>
-        <script src="{% static 'portfolio/js/lazy-load-image.js' %}"></script>
-    </body>
+    {% block content %} {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="{% static 'portfolio/js/animation.js' %}"></script>
+    <script src="{% static 'portfolio/js/lazy-load-image.js' %}"></script>
+</body>
+
 </html>

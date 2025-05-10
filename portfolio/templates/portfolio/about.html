@@ -1,13 +1,11 @@
-<div id="about"
-    class="py-[3rem] md:py-[5.5rem] overflow-y-hidden slide-from-bottom-left">
+<div id="about" class="py-[3rem] md:py-[5.5rem] overflow-y-hidden slide-from-bottom-left">
     <div class="flex flex-col max-w-6xl mx-auto px-5 gap-5">
-        <h2
-            class="capitalize text-2xl md:text-4xl font-bold text-center text-gray-800">
+        <h2 class="capitalize text-xl font-semibold text-center text-gray-800">
             About me
         </h2>
 
         {% if user.about %}
-        <p class="text-center font-medium max-w-2xl mx-auto">
+        <p class="text-center font-light max-w-2xl mx-auto text-gray-800/90">
             {{ user.about }}
         </p>
         {% endif %}
@@ -15,11 +13,9 @@
         {% if technologies %}
         <div class="flex flex-wrap gap-5 justify-center items-center">
             {% for tech in technologies %}
-            <div
-                class="flex flex-col gap-2 justify-center items-center hover:opacity-80">
-                <img data-src="{{ tech.logo.url}}" alt
-                    class="lazy h-9 w-auto" />
-                <span class="text-xs">{{ tech.name }}</span>
+            <div class="flex flex-col gap-2 justify-center items-center hover:opacity-80">
+                <img data-src="{{ tech.logo.url}}" alt class="lazy h-9 w-auto" />
+                <span class="text-xs text-gray-800/90">{{ tech.name }}</span>
             </div>
             {% endfor %}
         </div>
@@ -27,25 +23,22 @@
 
         <div class="flex flex-wrap justify-center gap-2 mt-5">
             {% if user.resume %}
-            <a
-                href="{{ user.resume.url}}"
-                class="shadow-md overflow-hidden relative before:absolute before:rounded-full before:top-0 before:-left-full before:h-full before:w-full before:bg-pink-500 before:transition-transform before:duration-500 hover:before:translate-x-full px-4 py-1 sm:px-5 sm:py-2 bg-black text-white hover:text-white font-bold rounded-full">
+            <a href="{{ user.resume.url}}"
+                class="shadow-md overflow-hidden relative before:absolute before:rounded-sm before:top-0 before:-left-full before:h-full before:w-full before:bg-pink-500 before:transition-transform before:duration-500 hover:before:translate-x-full px-4 py-1 bg-black text-white hover:text-white font-medium rounded-md">
                 <span class="relative z-1"> Resume </span>
             </a>
             {% endif %}
 
             {% if user.github_url %}
-            <a
-                href="{{ user.github_url }}"
-                class="shadow-md overflow-hidden relative before:absolute before:rounded-full before:top-0 before:-left-full before:h-full before:w-full before:bg-pink-500 before:transition-transform before:duration-500 hover:before:translate-x-full px-4 py-1 sm:px-5 sm:py-2 bg-black text-white hover:text-white font-bold rounded-full">
+            <a href="{{ user.github_url }}"
+                class="shadow-md overflow-hidden relative before:absolute before:rounded-sm before:top-0 before:-left-full before:h-full before:w-full before:bg-pink-500 before:transition-transform before:duration-500 hover:before:translate-x-full px-4 py-1 bg-black text-white hover:text-white font-medium rounded-md">
                 <span class="relative z-1"> Github </span>
             </a>
             {% endif %}
 
             {% if user.email %}
-            <a
-                href="mailto:{{ user.email }}"
-                class="shadow-md overflow-hidden relative before:absolute before:rounded-full before:top-0 before:-left-full before:h-full before:w-full before:bg-pink-500 before:transition-transform before:duration-500 hover:before:translate-x-full px-4 py-1 sm:px-5 sm:py-2 bg-black text-white hover:text-white font-bold rounded-full">
+            <a href="mailto:{{ user.email }}"
+                class="shadow-md overflow-hidden relative before:absolute before:rounded-sm before:top-0 before:-left-full before:h-full before:w-full before:bg-pink-500 before:transition-transform before:duration-500 hover:before:translate-x-full px-4 py-1 bg-black text-white hover:text-white font-medium rounded-md">
                 <span class="relative z-1"> Email </span>
             </a>
             {% endif %}

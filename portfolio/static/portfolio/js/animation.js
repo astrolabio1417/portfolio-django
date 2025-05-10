@@ -11,25 +11,6 @@ window.addEventListener("load", () => {
         });
     };
 
-    const bannerAnimation = () => {
-        const bannerSvg = document.querySelector(".banner-svg");
-        const shapes = bannerSvg.querySelectorAll(".shape");
-        gsap.set(shapes, { transformOrigin: "50% 50%" });
-        const timeline = gsap.timeline({ paused: true, delay: 0.4 });
-        timeline.set(bannerSvg, { opacity: 1 });
-        timeline.from(shapes, {
-            stagger: 0.3,
-            duration: 4,
-            scale: 0,
-            rotate: 150,
-            ease: "elastic.out(1,0.3)",
-            repeat: -1,
-            yoyo: true,
-        });
-
-        createScrollTrigger(bannerSvg, timeline);
-    };
-
     const confettiAnimation = () => {
         const timeline = gsap.timeline();
 
@@ -114,7 +95,6 @@ window.addEventListener("load", () => {
                 createScrollTrigger(element, timeline);
             });
 
-        bannerAnimation();
         confettiAnimation();
     };
 

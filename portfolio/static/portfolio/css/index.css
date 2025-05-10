@@ -54,11 +54,11 @@ body {
 
 @media (max-width: 900px) {
     .parallax-bg-confetti {
-        background: url(/static/portfolio/images/bg_confetti_sp01.png) repeat-y 50% 0;
+        background-image: url(/static/portfolio/images/bg_confetti_sp01.png) repeat-y 50% 0;
     }
     
     .parallax-bg-confetti-2 {
-        background: url(/static/portfolio/images/bg_confetti_sp02.png) repeat-y 50% 0;
+        background-image: url(/static/portfolio/images/bg_confetti_sp02.png) repeat-y 50% 0;
     }
 }
 
