@@ -1,4 +1,4 @@
-FROM python:3.10-alpine as compiler
+FROM python:3.10-alpine AS compiler
 
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -18,7 +18,7 @@ RUN apk update \
     && pip install --no-cache-dir --upgrade -r requirements.txt
 
 
-FROM python:3.10-alpine as runner
+FROM python:3.10-alpine AS runner
 
 WORKDIR /usr/src
 
